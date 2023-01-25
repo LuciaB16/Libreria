@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.Scanner;
 
 
 public class EntradaSalida {
@@ -15,17 +16,29 @@ public class EntradaSalida {
             switch (device){
                 case SALIDA_CONSOLA:
                     //TODO: try catch
-                    System.out.println("Consola: " +msj);
-                    return true;
-
+                    try {
+                        System.out.println("Consola: " + msj);
+                        return true;
+                    }catch (Exception e){
+                        return false;
+                    }
                 case SALIDA_WINDOW:
-                    JOptionPane.showMessageDialog(null,"Sale por una ventana" + msj);
-                    return true;
+                    try {
+                        JOptionPane.showMessageDialog(null, "Sale por una ventana" + msj.toCharArray()[20]);
+                        return true;
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                        return false;
+                    }
 
                     default:
                     return false;
 
         //Commit metodo de salida
             }
+    }
+    static String entrada(String mensaje){
+        Scanner sc= new Scanner(System.in);
+        return "";
     }
 }
